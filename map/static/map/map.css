@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+}
+
+#mapcontainer {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.title{
+    height: 35px;
+    margin-top: 0;
+    line-height: 35px;
+    color: black;
+    text-align: center;
+    background-color: rgba(254, 172, 29, 1);
+    font-family: 'Alegreya SC', serif;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    font-size: x-large;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Alegreya SC', serif;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border:solid 2px rgba(0, 120, 168, 1);
+    background-color: rgba(254, 172, 29, 0.9);
+}
+.btn:hover {
+    padding: 9px 19px;
+    border:solid 3px #0078A8;
+}
+
+.new-post {
+    margin: auto;
+    width: 700px;
+    font-family: 'Alegreya SC', serif;
+}
+
+form {
+    width: 700px;
+    margin: auto;
+}
+
+form p {
+    font-family: 'Alegreya SC', serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-btn{
+    display: inline-block;
+    font-family: 'Alegreya SC', serif;
+    width: 30px;
+    height: 30px;
+    background-color: cadetblue;
+}

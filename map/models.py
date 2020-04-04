@@ -8,6 +8,8 @@ class Post(models.Model):
     name = models.CharField(max_length=200)
     overview = models.TextField()
     address = models.CharField(max_length=500)
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     

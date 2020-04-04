@@ -1,0 +1,40 @@
+{% extends 'map/base.html' %}
+
+{% block content %}
+<div id="mapcontainer"></div>
+<script>
+    let map;
+    function init(){
+
+        let map = L.map('mapcontainer', { zoomControl: false });
+        map.setView([35.40, 136], 6)
+        L.tileLayer('http://tile.openstreetmap.jp/{z}/{x}/{y}.png', {
+            attrinution: "<a href='http://osm.org/copyright' target='_blank'>OpenStreetMap</a>"
+        }).addTo(map);
+    
+        {% if user.is_authenticated %}
+            let btn = L.control({ position: "topleft" });
+            btn.onAdd = function (map) {
+                this.ele = L.DomUtil.create('a' , "btn");
+                this.ele.id = "btnA" 
+                return this.ele
+            };
+            btn.addTo(map);
+            let btnA = document.getElementById("btnA");
+            btnA.textContent = "New Place+"; 
+            btnA.href = "{% url 'post_new' %}";
+        {% endif %}
+
+        
+        let popup, mpoint, sucontents, editBtn;
+        {% for post in posts %}
+            sucontents = '<a href="{% url 'post_edit' pk=post.pk %}">EDIT</a><br>{{ post.overview|linebreaksbr }}';
+            popup = L.popup({ maxWidth: 550 }).setContent(sucontents);
+            mpoint = [{{ post.latitude }}, {{ post.longitude }}];
+            L.marker(mpoint).bindPopup(popup).bindTooltip("{{ post.name }}").addTo(map);
+        {% endfor %}
+        
+    }
+    init();
+</script>
+{% endblock %}

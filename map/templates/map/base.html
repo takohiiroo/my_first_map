@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="{% static 'map/map.css' %}">
+    <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script> 
+    <script src="./plugin/leaflet-omnivore-master/leaflet-omnivore.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+SC:900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="{% url 'post_home' %}" class="header"><h1 class="title">Share Map</h1></a>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
